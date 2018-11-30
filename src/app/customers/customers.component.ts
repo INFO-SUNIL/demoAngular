@@ -89,7 +89,7 @@ export class CustomerComponent implements OnInit {
       addressType: 'home',
       street1: ['', Validators.required],
       street2: '',
-      city: '',
+      city: ['', Validators.required],
       state: '',
       zip: ''
     });
@@ -97,9 +97,9 @@ export class CustomerComponent implements OnInit {
 
   populateTestData(): void {
     this.customerForm.patchValue({
-      firstName: 'Jack',
-      lastName: 'Harkness',
-      emailGroup: { email: 'jack@torchwood.com', confirmEmail: 'jack@torchwood.com' }
+      firstName: 'Sunil',
+      lastName: 'Kumar',
+      emailGroup: { email: 'talk2me2005@gmail.com', confirmEmail: 'talk2me2005@gmail.com' }
     });
     const addressGroup = this.fb.group({
       addressType: 'work',
