@@ -1,0 +1,29 @@
+<h1>Post </h1>
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+  <h5 *ngIf="success">Your form save sucessfully</h5>
+  <label>
+    Title   :
+    <input type="text" formControlName="title">
+    <div *ngIf="submitted && messageForm.controls.title.errors" class="error">
+      <div *ngIf="messageForm.controls.title.errors.required">Your title is required</div>
+    </div>  
+  </label>
+  <label>
+      Body   :
+      <input type="text" formControlName="body">
+      <div *ngIf="submitted && messageForm.controls.body.errors" class="error">
+        <div *ngIf="messageForm.controls.body.errors.required">Your title is required</div>
+      </div>  
+    </label>
+    
+    <input type="submit" value="Send body" class="cta">
+  
+</form>
+
+<div *ngIf="submitted" class="results">
+    <strong>Name:</strong> 
+    <span>{{ messageForm.controls.title.value }}</span>
+
+    <strong>Message:</strong> 
+    <span>{{ messageForm.controls.body.value }}</span>
+</div>

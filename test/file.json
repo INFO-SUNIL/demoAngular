@@ -1,0 +1,24 @@
+{ 
+    "object":   [
+    {
+      "name":"sunil",
+      "online":true
+    },
+    {
+        "name":"Ajay1",
+        "online":false
+      },
+      {
+        "name":"sunil2",
+        "online":true
+      },
+      {
+        "name":"ANV3",
+        "online":false
+      },
+      {
+        "name":"XXYY",
+        "online":true
+      }
+  ]
+}

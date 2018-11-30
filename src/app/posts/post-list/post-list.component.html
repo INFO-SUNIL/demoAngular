@@ -1,0 +1,62 @@
+<div class="col-md-12">
+    <h2> Post Details</h2>
+  <button class="btn btn-danger" (click)="addPost()"> Add Post</button>
+   
+
+  <!-- <div *ngFor="let item of pagedItems; let myIndex=index;">
+      {{myIndex+1}} {{item.title|slice:0:20}}
+    {{item.body | slice:0:200}}
+    {{item.body}}
+
+    <a routerLink="/postdetails/{{item.id}}">View</a>
+    <button class="btn btn-danger" (click)="deletePost(data)"  style="margin-left: 10px;"> <span class="glyphicon glyphicon-remove">X</span></button>
+    <button class="btn btn-danger" (click)="editPost(data)" style="margin-left: 10px;">Edit</button>
+  </div> -->
+
+
+
+ <table>
+    <tr>
+      <td>S No.</td>
+      <td>title</td>
+      <td>body</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let data of pagedItems; let myIndex= index; let evenRecord= even; let oddRecord= odd;  let lastRecord=last; let firstRecord= first;  " [ngClass]= "{odd: oddRecord, even : evenRecord, last: lastRecord, first :firstRecord}"> 
+      <td>{{myIndex+1}}</td>
+      <td>{{data.title|slice:0:20}}</td>
+      <td> {{data.body | slice:0:200}}</td>
+      <td>
+          <a routerLink="/postdetails/{{data.id}}">View</a>
+          
+          
+          <span class="glyphicon glyphicon-remove"></span>
+          
+        
+      </td> 
+      <td><button class="btn btn-danger" (click)="deletePost(data)"  style="margin-left: 10px;"> <span class="glyphicon glyphicon-remove">X</span></button></td>
+      <td><button class="btn btn-danger" (click)="editPost(data)" style="margin-left: 10px;">Edit</button></td>  
+    </tr>
+  </table>
+
+   <!-- pager -->
+   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)">First</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)">Next</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)">Last</a>
+      </li>
+  </ul>
+</div>

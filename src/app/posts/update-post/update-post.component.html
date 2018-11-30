@@ -1,0 +1,32 @@
+<h1>Update Post </h1>
+<form [formGroup]="editPost" (ngSubmit)="onSubmit()">
+  <h5 *ngIf="Sucess">Your form save sucessfully</h5>
+  <label>
+    UserId   :
+      <input type="text" formControlName="userId">  </label>    
+  <label>
+    Title   :
+    <input type="text" formControlName="title">
+    <div *ngIf="submitted && editPost.controls.title.errors" class="error">
+      <div *ngIf="editPost.controls.title.errors.required">Your title is required</div>
+    </div>  
+  </label>
+  <label>
+      Body   :
+      <input type="text" formControlName="body">
+      <div *ngIf="submitted && editPost.controls.body.errors" class="error">
+        <div *ngIf="editPost.controls.body.errors.required">Your title is required</div>
+      </div>  
+    </label>
+    
+    <input type="submit" value="Update" class="cta">
+  
+</form>
+
+<div *ngIf="submitted" class="results">
+    <strong>Name:</strong> 
+    <span>{{ messageForm.controls.title.value }}</span>
+
+    <strong>Message:</strong> 
+    <span>{{ messageForm.controls.body.value }}</span>
+</div>
