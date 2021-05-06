@@ -29,7 +29,7 @@
     "hammerjs": "^2.0.8",
     "node-sass": "^4.10.0",
     "rxjs": "~6.3.3",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
